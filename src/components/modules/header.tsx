@@ -3,6 +3,7 @@
 import { useScrollDirection } from 'hooks/direction.hook'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import { GeneralSvgNames, SvgIcon } from 'ui/svg-icon'
 
 const LINKS = [
@@ -16,9 +17,13 @@ const LINKS = [
 export const Header = () => {
   const scrollDirection = useScrollDirection()
   const pathname = usePathname()
-  const isWhiteBg = JSON.parse(
-    localStorage.getItem('white-bg') as string
-  ).includes(pathname)
+  const [isWhiteBg, setIsWhiteBg] = useState([])
+
+  useEffect(() => {
+    setIsWhiteBg(
+      JSON.parse(localStorage.getItem('white-bg') as string).includes(pathname)
+    )
+  }, [])
 
   return (
     <header
