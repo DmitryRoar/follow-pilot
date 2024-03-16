@@ -3,25 +3,21 @@
 import { Card } from '@/components/templates/card'
 import Link from 'next/link'
 
-const GRADIENT =
-  'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)'
+const GRADIENT = 'red'
 
 const ITEMS = [
-  { title: 'instagram follower', href: '/product/instagram-follower' },
+  { title: 'Youtube views', href: '/product/instagram-follower' },
   {
-    title: 'instagram',
-    addon: 'premium',
+    title: 'TikTok Likes',
     href: '/product/instagram-follower-premium',
+    addon: 'Deutsch',
   },
-  { title: 'instagram likes', href: '/product/instagram-likes' },
-  { title: 'instagram comments', href: '/product/instagram-kommentare' },
-  { title: 'instagram views', href: '/product/instagram-views' },
-  { title: 'instagram impressions', href: '/product/instagram-impressions' },
+  { title: 'Youtube Comments', href: '/product/instagram-likes' },
 ]
 
-export default function Home() {
+const Youtube = () => {
   return (
-    <div>
+    <div className='flex-shrink-0'>
       <div
         className='h-half-screen'
         style={{
@@ -29,8 +25,8 @@ export default function Home() {
         }}
       >
         <div className='flex flex-col items-center justify-center h-full text-white'>
-          <h1 className='text-4xl'>Oster SALE!</h1>
-          <h1 className='text-4xl'>Bis zu 50 % Rabatt auf alle Artikel!</h1>
+          <h1 className='text-4xl'>Jetzt auch TikTok Reichweite!</h1>
+          <h1 className='text-4xl'>Bis zu 50 % reduziert!</h1>
         </div>
       </div>
 
@@ -39,9 +35,10 @@ export default function Home() {
           <Link href={item.href} key={idx}>
             <Card
               gradient={GRADIENT}
-              media='instagram'
-              title={item.title}
               addon={item.addon}
+              addonColor='text-red-600'
+              media='youtube'
+              title={item.title}
             />
           </Link>
         ))}
@@ -49,3 +46,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Youtube
