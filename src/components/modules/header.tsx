@@ -20,10 +20,13 @@ export const Header = () => {
   const [isWhiteBg, setIsWhiteBg] = useState([])
 
   useEffect(() => {
-    setIsWhiteBg(
-      JSON.parse(localStorage.getItem('white-bg') as string).includes(pathname)
+    const whiteBgStorage = JSON.parse(
+      localStorage.getItem('white-bg') as string
     )
-  }, [])
+    if (whiteBgStorage) {
+      setIsWhiteBg(whiteBgStorage.includes(pathname))
+    }
+  }, [pathname])
 
   return (
     <header
